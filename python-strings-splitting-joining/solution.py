@@ -39,13 +39,7 @@ def count_nonblank_lines(text: str) -> int:
     Return how many lines in `text` (as split by splitlines())
     contain at least one character that is not whitespace.
     """
-    lines = text.splitlines()
-    count = 0
-    for i in lines:
-        i = i.strip()
-        if len(i) > 0:
-            count+=1
-    return count
+    return sum(1 for line in text.splitlines() if line.strip() != "")
 
 
 def make_csv_line(fields) -> str:
